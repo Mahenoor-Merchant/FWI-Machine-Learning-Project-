@@ -1,0 +1,42 @@
+<html>
+<body>
+    <div class="login">
+       <h1>FWI Prediction</h1>
+   
+        <!-- Main Input For Receiving Query to our ML -->
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+         <input type="text" name="Temperature" placeholder="Temperature" required="required" /><br>
+           <input type="text" name="RH" placeholder="RH" required="required" /><br>
+           <input type="text" name="Ws" placeholder="Ws" required="required" /><br>
+           <input type="text" name="Rain" placeholder="Rain" required="required" /><br>
+           <input type="text" name="FFMC" placeholder="FFMC" required="required" /><br>
+           <input type="text" name="DMC" placeholder="DMC" required="required" /><br>
+           <input type="text" name="ISI" placeholder="ISI" required="required" /><br>
+           <input type="text" name="Classes" placeholder="Classes" required="required" /><br>
+           <input type="text" name="Region" placeholder="Region" required="required" /><br>
+   
+   
+   
+           <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+       </form>
+    <h4>
+        Attribute Information:</br>
+        Weather data observations</br>
+        1. Temp : temperature noon (temperature max) in Celsius degrees: 22 to 42</br>
+        2. RH : Relative Humidity in %: 21 to 90</br>
+        3. Ws :Wind speed in km/h: 6 to 29</br>
+        4. Rain: total day in mm: 0 to 16.8</br>
+        FWI Components</br>
+        5. Fine Fuel Moisture Code (FFMC) index from the FWI system: 28.6 to 92.5</br>
+        6. Duff Moisture Code (DMC) index from the FWI system: 1.1 to 65.9</br>
+        7. Drought Code (DC) index from the FWI system: 7 to 220.4</br>
+        8. Initial Spread Index (ISI) index from the FWI system: 0 to 18.5</br>
+        9. Buildup Index (BUI) index from the FWI system: 1.1 to 68</br>
+        10. Classes: two classes, namely Fire and not Fire</br>
+
+        Fire Weather Index (FWI) Index: 0 to 31.1</br>
+    <h2>
+       THE FWI prediction is {{result}}
+    </h2>
+   <body>
+</html>
